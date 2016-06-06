@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="To_Do_List.Add"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:To_Do_List"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Accept" Label="done" Click="Addit"/>
+            <AppBarButton Icon="Cancel" Label="cancel" Click="Nav_Back"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="To Do List" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="add an item" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+
+                </Grid.RowDefinitions>
+                <StackPanel Margin="0,0,0,20" Grid.Row="0">
+                    <TextBlock
+                    Text="what do you have to do?"
+                    FontSize="20">
+                    </TextBlock>
+                    <TextBox x:Name="Src"
+                             PlaceholderText="to do">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <TextBlock
+                        Text="priority"
+                        FontSize="20">
+                    </TextBlock>
+                    <ComboBox x:Name="Pri">
+                        <ComboBoxItem Content="low" />
+                        <ComboBoxItem Content="medium" />
+                        <ComboBoxItem Content="high" />
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
